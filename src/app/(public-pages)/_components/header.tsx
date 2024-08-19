@@ -20,16 +20,19 @@ export function Header() {
                 Todo App
             </Link>
             <div className='flex items-center gap-x-6'>
-                {isLogged ? <LogoutButton /> : null}
-                <Link
-                    href="/sign-in"
-                    className={buttonVariants({
-                        variant: "secondary",
-                    })}
-                    prefetch={false}
-                >
-                    Sign In
-                </Link>
+                {isLogged ? (
+                    <LogoutButton />
+                ) : (
+                    <Link
+                        href="/sign-in"
+                        className={buttonVariants({
+                            variant: "secondary",
+                        })}
+                        prefetch={false}
+                    >
+                        Sign In
+                    </Link>
+                )}
             </div>
         </header>
     )

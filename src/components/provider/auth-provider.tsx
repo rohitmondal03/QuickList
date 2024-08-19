@@ -1,11 +1,11 @@
 "use client"
 
 import { useRouter } from "next/navigation";
-import { createContext, useState } from "react"
+import { createContext, useEffect, useState } from "react"
 import { Models } from "appwrite"
 import { toast } from "react-toastify";
 
-import { appwriteAccount, ID } from "@/lib/appwrite";
+import { appwriteAccount, appwriteClient, ID } from "@/lib/appwrite";
 
 
 type TUserContext = {
@@ -31,6 +31,23 @@ export function AuthProvider({ children }: TLayout) {
     const { push: redirect } = useRouter();
     const [user, setUser] = useState<Models.User<Models.Preferences> | undefined>();
     const [isLogged, setIsLogged] = useState(false);
+
+
+    useEffect(() => {
+        const fetchUserDetails = async () => {
+            try {
+                const userDetails = await appwriteAccount.get();
+                setUser(userDetails);
+                setIsLogged(true);
+            } catch (err: any) {
+                setUser(undefined);
+                setIsLogged(false);
+                return;
+            }
+        }
+
+        void fetchUserDetails();
+    }, [user])
 
 
     const signUp = async ({
