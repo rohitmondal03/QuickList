@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat as Inter } from "next/font/google";
 import { Flip, ToastContainer } from 'react-toastify';
 
-import { AuthProvider } from "@/components/provides/auth-provider";
+import { AuthProvider } from "@/components/provider/auth-provider";
 import { MainFooter } from "@/components/shared/footer";
 
 import 'react-toastify/dist/ReactToastify.css';

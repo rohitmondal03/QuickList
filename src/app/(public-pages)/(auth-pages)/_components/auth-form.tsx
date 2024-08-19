@@ -2,18 +2,17 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { FormEvent, useState, useContext } from "react"
+import { useState } from "react"
 
 import { useUser } from "@/lib/hooks/use-user"
 import { LoadingButton } from "@/components/ui/loading-button"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import { UserContext } from "@/components/provides/auth-provider"
 
 
 export function AuthForm() {
-    // const {}= useContext(UserContext);
+    const { signIn, signUp } = useUser();
     const pathname = usePathname();
     const [isLoading, setLoading] = useState(false)
     const [usersInputDetails, setUsersInputDetails] = useState<{
@@ -27,20 +26,21 @@ export function AuthForm() {
     })
 
 
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
+    const handleSubmit = () => {
+        setLoading(true);
+        
+        pathname === "/sign-in"
+        ? signIn({
+            email: usersInputDetails.email,
+            password: usersInputDetails.password,
+        })
+        : signUp({
+            email: usersInputDetails.email,
+            name: usersInputDetails.name,
+            password: usersInputDetails.password,
+        })
 
-        // pathname === "/sign-in"
-        //     ? signIn({
-        //         email: usersInputDetails.email,
-        //         password: usersInputDetails.password,
-        //     })
-        //     : signUp({
-        //         email: usersInputDetails.email,
-        //         name: usersInputDetails.name,
-        //         password: usersInputDetails.password,
-        //     })
-
+        setLoading(false);
     }
 
 
@@ -49,9 +49,8 @@ export function AuthForm() {
             <form
                 className="space-y-4"
                 onSubmit={(e) => {
-                    setLoading(true);
-                    handleSubmit(e);
-                    setLoading(false);
+                    e.preventDefault();
+                    handleSubmit();
                 }}
             >
                 <div>
@@ -98,6 +97,7 @@ export function AuthForm() {
                         id="password"
                         type="password"
                         required
+                        placeholder="........."
                         value={usersInputDetails.password}
                         onChange={(e) => setUsersInputDetails(prev => ({
                             ...prev,

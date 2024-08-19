@@ -1,12 +1,22 @@
-import { Account, Client as AppwriteClient } from "appwrite";
+import { 
+    Account, 
+    Avatars,
+    Client as AppwriteClient, 
+ } from "appwrite";
 
-
-export const appwriteClient = new AppwriteClient();
+const appwriteClient = new AppwriteClient();
 
 appwriteClient
-  .setEndpoint('https://cloud.appwrite.io/v1')
-  .setProject('66c2a77400168af6da11');
+  .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT || "")
+  .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID || "");
 
-export const appwriteAccount = new Account(appwriteClient);
+const appwriteAccount = new Account(appwriteClient);
+
+const appwriteAvatar = new Avatars(appwriteClient);
 
 export { ID } from "appwrite" 
+export {
+    appwriteAccount,
+    appwriteClient,
+    appwriteAvatar,
+}
