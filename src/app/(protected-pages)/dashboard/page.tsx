@@ -4,13 +4,9 @@ import { CreateTaskForm } from "./_components/create-task-form"
 import { TasksCard } from "./_components/tasks-card"
 import { CategoriesCard } from "./_components/categories-card"
 import { PrioritiesCard } from "./_components/priorities-card"
-import { useUser } from "@/lib/hooks/use-user"
 
 
 export default function DashboardPage() {
-    const { user } = useUser();
-    console.log(user?.$id)
-
     return (
         <div className="flex min-h-screen w-full flex-col bg-background">
             <div className="flex flex-1 gap-4 p-4 sm:px-6 sm:py-4">

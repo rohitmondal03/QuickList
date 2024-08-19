@@ -1,7 +1,8 @@
 import { 
     Account, 
     Avatars,
-    Client as AppwriteClient, 
+    Databases,
+    Client as AppwriteClient,
  } from "appwrite";
 
 const appwriteClient = new AppwriteClient();
@@ -14,9 +15,12 @@ const appwriteAccount = new Account(appwriteClient);
 
 const appwriteAvatar = new Avatars(appwriteClient);
 
+const database = new Databases(appwriteClient)
+
 export { ID } from "appwrite" 
 export {
     appwriteAccount,
     appwriteClient,
     appwriteAvatar,
+    database,
 }
