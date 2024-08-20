@@ -1,20 +1,9 @@
-"use client"
-
-import { useState } from "react"
-
-import { useUser } from "@/lib/hooks/use-user"
-import { Button } from "@/components/ui/button"
-
 import { UpdateNameCard } from "./_components/update-name-card"
 import { UpdateEmailCard } from "./_components/update-email-card"
 import { UpdatePasswordCard } from "./_components/update-password-card"
 
 
 export default function SettingPage() {
-    const { user } = useUser();
-    const [isLoading, setLoading] = useState(false);
-
-
     return (
         <div className="w-full max-w-3xl mx-auto py-12 px-4 md:px-6">
             <div className="space-y-8">

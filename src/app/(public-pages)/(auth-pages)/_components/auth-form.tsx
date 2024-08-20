@@ -26,21 +26,24 @@ export function AuthForm() {
     })
 
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         setLoading(true);
-        
-        pathname === "/sign-in"
-        ? signIn({
-            email: usersInputDetails.email,
-            password: usersInputDetails.password,
-        })
-        : signUp({
-            email: usersInputDetails.email,
-            name: usersInputDetails.name,
-            password: usersInputDetails.password,
-        })
 
-        setLoading(false);
+        try {
+            pathname === "/sign-in"
+                ? await signIn({
+                    email: usersInputDetails.email,
+                    password: usersInputDetails.password,
+                })
+                : await signUp({
+                    email: usersInputDetails.email,
+                    name: usersInputDetails.name,
+                    password: usersInputDetails.password,
+                })
+        } finally {
+            setLoading(false);
+            return;
+        }
     }
 
 
@@ -48,9 +51,9 @@ export function AuthForm() {
         <>
             <form
                 className="space-y-4"
-                onSubmit={(e) => {
+                onSubmit={async (e) => {
                     e.preventDefault();
-                    handleSubmit();
+                    await handleSubmit();
                 }}
             >
                 <div>
@@ -113,7 +116,7 @@ export function AuthForm() {
                         Sign {pathname === "/sign-up" ? "Up" : "In"}
                     </Button>
                 ) : (
-                    <LoadingButton />
+                    <LoadingButton className="w-full" />
                 )}
             </form>
             <div className="text-center text-muted-foreground text-sm">
