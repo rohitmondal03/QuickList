@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
 
-import { appwriteAccount, appwriteClient, database, ID } from "../appwrite"
+import { appwriteAccount, database, ID } from "../appwrite"
 
 
 const addToDo = async ({
@@ -37,6 +37,15 @@ const addToDo = async ({
         return;
     }
 }
+
+
+const fetchToDo = async () => {
+    try {
+        
+    } catch (err: any) {
+        toast.error("Error fetching data");
+    }
+} 
 
 
 const updateName = async (name: string) => {
@@ -85,6 +94,7 @@ const updatePassword = async ({
 
 export {
     addToDo,
+    fetchToDo,
     updateName,
     updateEmail,
     updatePassword,

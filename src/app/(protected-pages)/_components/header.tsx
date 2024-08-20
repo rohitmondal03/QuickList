@@ -28,7 +28,7 @@ export function Header() {
 
 
     return (
-        <header className="sticky top-0 z-40 flex h-14 items-center justify-between border-b-2 border-slate-400 bg-background px-4 sm:px-6">
+        <header className="sticky top-0 z-40 flex items-center justify-between border-b-2 border-slate-400 bg-background px-4 sm:px-10 py-4">
             <div className="flex items-center gap-4">
                 <Link
                     href="/"
@@ -36,8 +36,8 @@ export function Header() {
                     prefetch={false}
                 >
                     <CheckIcon className="h-6 w-6" />
-                    <span className="text-lg">
-                        Todo App
+                    <span className="text-xl font-bold">
+                        QuickList
                     </span>
                 </Link>
             </div>
