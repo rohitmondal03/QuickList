@@ -13,7 +13,7 @@ export function LoadingButton(props: TProps) {
         <Button
             disabled
             variant={"default"}
-            className={cn("w-full", props.className)}
+            className={cn("w-fit", props.className)}
             {...props}
         >
             <LoaderCircle />

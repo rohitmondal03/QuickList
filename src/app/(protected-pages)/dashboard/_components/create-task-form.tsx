@@ -58,9 +58,6 @@ export function CreateTaskForm() {
                 priority: "",
                 title: "",
             })
-        } catch (err: any) {
-            toast.error(err.response.message)
-            return;
         } finally {
             setLoading(false);
         }
@@ -194,7 +191,7 @@ export function CreateTaskForm() {
                         </div>
                     </div>
                     {isLoading ? (
-                        <LoadingButton />
+                        <LoadingButton className="w-full" />
                     ) : (
                         <Button type="submit" className="w-full">
                             Create Task
