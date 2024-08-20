@@ -14,7 +14,7 @@ export default function Template({ children }: TLayout) {
         if(isLogged) {
             redirect("/dashboard")
         }
-    }, [isLogged])
+    }, [isLogged, redirect])
 
 
     return (

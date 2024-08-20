@@ -29,8 +29,11 @@ export default function Component() {
                 </section>
                 <section className="py-16 px-6 md:px-12 lg:px-20">
                     <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {WEBSITE_FEATURE.map((feat) => (
-                            <div className="space-y-4">
+                        {WEBSITE_FEATURE.map((feat, idx) => (
+                            <div
+                                className="space-y-4"
+                                key={idx}
+                            >
                                 <div className="inline-block rounded-md bg-primary px-3 py-1 text-sm text-primary-foreground">
                                     {feat.badgeText}
                                 </div>

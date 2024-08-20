@@ -14,7 +14,7 @@ export default function Template({ children }: TLayout) {
         if(!isLogged) {
             redirect("/sign-in")
         }
-    }, [isLogged])
+    }, [isLogged, redirect])
 
 
     return (
