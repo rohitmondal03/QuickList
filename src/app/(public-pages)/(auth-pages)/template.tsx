@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
-import { useUser } from "@/lib/hooks/use-user"
+import { useUser } from "@/hooks/use-user"
 
 
 export default function Template({ children }: TLayout) {

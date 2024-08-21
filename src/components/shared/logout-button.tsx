@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { useUser } from '@/lib/hooks/use-user'
+import { useUser } from '@/hooks/use-user'
 import { Button } from '../ui/button'
 import { LoadingButton } from '../ui/loading-button';
 

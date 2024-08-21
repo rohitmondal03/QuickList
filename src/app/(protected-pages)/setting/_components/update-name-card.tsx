@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation"
 import { useState } from "react"
 
 import { updateName } from "@/lib/functions/db"
-import { useUser } from "@/lib/hooks/use-user"
+import { useUser } from "@/hooks/use-user"
 import { LoadingButton } from "@/components/ui/loading-button"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"

@@ -4,7 +4,7 @@ import Link from "next/link"
 import { CheckIcon, } from "lucide-react"
 
 import { appwriteAvatar } from "@/lib/appwrite"
-import { useUser } from "@/lib/hooks/use-user"
+import { useUser } from "@/hooks/use-user"
 import { LogoutButton } from "@/components/shared/logout-button"
 import { Button } from "@/components/ui/button"
 import {

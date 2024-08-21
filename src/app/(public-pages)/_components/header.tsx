@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 
-import { useUser } from '@/lib/hooks/use-user'
+import { useUser } from '@/hooks/use-user'
 import { LogoutButton } from '@/components/shared/logout-button'
 import { buttonVariants } from '@/components/ui/button'
 import { ArrowUpRight } from 'lucide-react'

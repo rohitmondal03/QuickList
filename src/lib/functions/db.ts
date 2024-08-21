@@ -1,3 +1,4 @@
+import { Query } from "appwrite";
 import { toast } from "react-toastify";
 
 import { appwriteAccount, database, ID } from "../appwrite"
@@ -39,13 +40,38 @@ const addToDo = async ({
 }
 
 
-const fetchToDo = async () => {
+const fetchUsersToDo = async (userId: string) => {
     try {
-        
+        return await database.listDocuments(
+            process.env.NEXT_PUBLIC_DB_ID ?? "",
+            process.env.NEXT_PUBLIC_TODO_COLLECTION_ID ?? "",
+            [
+                Query.equal("userId", userId)
+            ]
+        )
     } catch (err: any) {
         toast.error("Error fetching data");
+        return;
     }
-} 
+}
+
+
+const fetchLatestUsersToDo = async (userId: string) => {
+    try {
+        return await database.listDocuments(
+            process.env.NEXT_PUBLIC_DB_ID ?? "",
+            process.env.NEXT_PUBLIC_TODO_COLLECTION_ID ?? "",
+            [
+                Query.equal("userId", userId),
+                Query.limit(5),
+                Query.orderDesc("createdAt"),
+            ]
+        )
+    } catch (err: any) {
+        toast.error(err.response.message);
+        return;
+    }
+}
 
 
 const updateName = async (name: string) => {
@@ -94,7 +120,8 @@ const updatePassword = async ({
 
 export {
     addToDo,
-    fetchToDo,
+    fetchUsersToDo,
+    fetchLatestUsersToDo,
     updateName,
     updateEmail,
     updatePassword,

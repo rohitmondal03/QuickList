@@ -4,7 +4,7 @@ import { useState } from "react"
 import { toast } from "react-toastify"
 
 import { addToDo } from "@/lib/functions/db"
-import { useUser } from "@/lib/hooks/use-user"
+import { useUser } from "@/hooks/use-user"
 import { LoadingButton } from "@/components/ui/loading-button"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
@@ -48,10 +48,20 @@ export function CreateTaskForm() {
         setLoading(true);
 
         try {
+            if(!taskInput.priority) {
+                toast.error("Please select priority");
+                return;
+            }
+            if(!taskInput.category) {
+                toast.error("Please select category");
+                return;
+            }
+
             await addToDo({
                 userId: user?.$id || "",
                 ...taskInput
             })
+
             setTaskInput({
                 category: "",
                 description: "",

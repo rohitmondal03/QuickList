@@ -1,5 +1,3 @@
-"use client"
-
 import { CreateTaskForm } from "./_components/create-task-form"
 import { TasksCard } from "./_components/tasks-card"
 import { CategoriesCard } from "./_components/categories-card"

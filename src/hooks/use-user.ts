@@ -1,6 +1,6 @@
 import { useContext } from "react"
 
-import { UserContext } from "@/components/provider/auth-provider"
+import { UserContext } from "@/provider/auth-provider"
 
 
 const useUser = () => {
