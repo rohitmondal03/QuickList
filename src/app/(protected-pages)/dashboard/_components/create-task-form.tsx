@@ -17,6 +17,7 @@ import {
     CardContent,
 } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { useRouter } from "next/navigation"
 
 
 export function CreateTaskForm() {
@@ -48,11 +49,11 @@ export function CreateTaskForm() {
         setLoading(true);
 
         try {
-            if(!taskInput.priority) {
+            if (!taskInput.priority) {
                 toast.error("Please select priority");
                 return;
             }
-            if(!taskInput.category) {
+            if (!taskInput.category) {
                 toast.error("Please select category");
                 return;
             }

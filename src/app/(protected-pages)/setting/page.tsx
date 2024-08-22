@@ -5,7 +5,7 @@ import { UpdatePasswordCard } from "./_components/update-password-card"
 
 export default function SettingPage() {
     return (
-        <div className="w-full max-w-3xl mx-auto py-12 px-4 md:px-6">
+        <div className="w-full max-w-5xl mx-auto py-12 px-4 md:px-6">
             <div className="space-y-8">
                 <div>
                     <h1 className="text-3xl font-bold">

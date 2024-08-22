@@ -14,7 +14,7 @@ import {
 
 
 export function PrioritiesCard() {
-    const { data, isFetching } = useUserToDo();
+    const { isFetching, todosPrioritiesNumbers } = useUserToDo();
 
 
     return (
@@ -37,7 +37,7 @@ export function PrioritiesCard() {
                                 <span>High</span>
                             </div>
                             <Badge>
-                                {data?.filter(doc => doc.priority === "High").length}
+                                {todosPrioritiesNumbers.high}
                             </Badge>
                         </Link>
                         <Link
@@ -50,7 +50,7 @@ export function PrioritiesCard() {
                                 <span>Medium</span>
                             </div>
                             <Badge>
-                                {data?.filter(doc => doc.priority === "Medium").length}
+                                {todosPrioritiesNumbers.medium}
                             </Badge>
                         </Link>
                         <Link
@@ -63,7 +63,7 @@ export function PrioritiesCard() {
                                 <span>Low</span>
                             </div>
                             <Badge>
-                                {data?.filter(doc => doc.priority === "Low").length}
+                                {todosPrioritiesNumbers.low}
                             </Badge>
                         </Link>
                     </div>

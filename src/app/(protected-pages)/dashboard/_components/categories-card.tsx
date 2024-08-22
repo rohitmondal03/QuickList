@@ -20,7 +20,7 @@ import {
 
 
 export function CategoriesCard() {
-    const { data, isFetching } = useUserToDo();
+    const { isFetching, todosCategoryNumbers, } = useUserToDo();
 
 
     return (
@@ -43,7 +43,7 @@ export function CategoriesCard() {
                                 <span>Work</span>
                             </div>
                             <Badge>
-                                {data?.filter((doc) => doc.category === "Work").length}
+                                {todosCategoryNumbers.work}
                             </Badge>
                         </Link>
                         <Link
@@ -56,7 +56,7 @@ export function CategoriesCard() {
                                 <span>Personal</span>
                             </div>
                             <Badge>
-                                {data?.filter((doc) => doc.category === "Personal").length}
+                                {todosCategoryNumbers.personal}
                             </Badge>
                         </Link>
                         <Link
@@ -69,7 +69,7 @@ export function CategoriesCard() {
                                 <span>Shopping</span>
                             </div>
                             <Badge>
-                                {data?.filter((doc) => doc.category === "Shopping").length}
+                                {todosCategoryNumbers.shopping}
                             </Badge>
                         </Link>
                         <Link
@@ -82,7 +82,7 @@ export function CategoriesCard() {
                                 <span>Reminders</span>
                             </div>
                             <Badge>
-                                {data?.filter((doc) => doc.category === "Remainders").length}
+                                {todosCategoryNumbers.remainders}
                             </Badge>
                         </Link>
                     </div>

@@ -63,13 +63,13 @@ export function Header() {
                         <DropdownMenuLabel>My Account</DropdownMenuLabel>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem>
-                            <Link href={"/setting"}>
-                                Setting
+                            <Link href={"/dashboard"}>
+                                Dashboard
                             </Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem>
-                            <Link href={"/dashboard"}>
-                                Dashboard
+                            <Link href={"/setting"}>
+                                Setting
                             </Link>
                         </DropdownMenuItem>
                     </DropdownMenuContent>

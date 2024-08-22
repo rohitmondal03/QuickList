@@ -46,7 +46,8 @@ const fetchUsersToDo = async (userId: string) => {
             process.env.NEXT_PUBLIC_DB_ID ?? "",
             process.env.NEXT_PUBLIC_TODO_COLLECTION_ID ?? "",
             [
-                Query.equal("userId", userId)
+                Query.equal("userId", userId),
+                Query.orderDesc("createdAt"),
             ]
         )
     } catch (err: any) {
