@@ -3,7 +3,6 @@
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import { useUserToDo } from '@/hooks/use-user-todo'
-import { ButtonTextCompoundInput, ButtonIconsInput } from '@fullcalendar/core/index.js'
 
 
 export default function CalendarViewPage() {
@@ -11,17 +10,17 @@ export default function CalendarViewPage() {
 
 
     return (
-        <div className=''>
-            <h1>
+        <div className="flex min-h-screen w-full flex-col bg-background py-16">
+            <h1 className='text-3xl font-bold text-center'>
                 View Your ToDos in Calendar view
             </h1>
-            <div className='py-16 px-12'>
+            <div className='py-16 px-24'>
                 <FullCalendar
                     plugins={[dayGridPlugin]}
                     initialView="dayGridMonth"
                     events={data?.map(item => ({
                         title: item.title,
-                        date: item.createdAt,
+                        date: new Date(item.createdAt),
                         color: item.priority === "High"
                             ? "red"
                             : item.priority === "Low"
@@ -29,9 +28,9 @@ export default function CalendarViewPage() {
                                 : "orange"
                     }))}
                     buttonText={{
-                        today: "Today",
-                        next: "Next",
-                        prev: "Prev",
+                        today: "Current month",
+                        next: ">",
+                        prev: "<",
                     }}
                     titleFormat={{
                         separator: " - ",

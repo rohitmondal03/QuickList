@@ -12,7 +12,7 @@ export default function Template({ children }: TLayout) {
 
     useEffect(() => {
         if(isLogged) {
-            redirect("/dashboard/calendar-view")
+            redirect("/dashboard")
         }
     }, [isLogged, redirect])
 

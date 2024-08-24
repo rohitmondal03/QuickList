@@ -71,6 +71,7 @@ export function AuthForm() {
                             ...prev,
                             email: e.target.value,
                         }))}
+                        className=""
                     />
                 </div>
                 {pathname === "/sign-up" ? (

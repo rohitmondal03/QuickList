@@ -34,7 +34,7 @@ export function AuthProvider({ children }: TLayout) {
 
 
     useEffect(() => {
-        const fetchUserDetails = async () => {
+        (async () => {
             try {
                 const userDetails = await appwriteAccount.get();
                 setUser(userDetails);
@@ -44,9 +44,7 @@ export function AuthProvider({ children }: TLayout) {
                 setIsLogged(false);
                 return;
             }
-        }
-
-        void fetchUserDetails();
+        })();
     }, [user])
 
 

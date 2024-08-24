@@ -85,7 +85,7 @@ export function UserToDoProvider({ children }: TLayout) {
         <UserToDoContext.Provider value={{
             isFetching,
             data,
-            latestTodo: data.slice(0, 5),
+            latestTodo: data.slice(0, 3),
             todosCategoryNumbers,
             todosPrioritiesNumbers
         }}>

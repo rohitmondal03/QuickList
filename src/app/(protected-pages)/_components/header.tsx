@@ -72,6 +72,11 @@ export function Header() {
                                 Setting
                             </Link>
                         </DropdownMenuItem>
+                        <DropdownMenuItem>
+                            <Link href={"/dashboard/calendar-view"}>
+                                Calendar View
+                            </Link>
+                        </DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
             </div>
